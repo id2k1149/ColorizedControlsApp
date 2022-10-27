@@ -11,8 +11,6 @@ class ViewController: UIViewController {
 
     // MARK: - IB Outlets
     @IBOutlet var colorView: UIView!
-    @IBOutlet var segmentedControl: UISegmentedControl!
-    @IBOutlet var mainLabel: UILabel!
     
     @IBOutlet var redLabel: UILabel!
     @IBOutlet var greenLabel: UILabel!
@@ -25,7 +23,6 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        segmentedControl.insertSegment(withTitle: "Third", at: 2, animated: false)
         
         setupRedSlider()
         setupRedLabel()
@@ -36,7 +33,6 @@ class ViewController: UIViewController {
         setupBlueSlider()
         setupBlueLabel()
         
-        setupMainLabel()
         
         
         
@@ -98,12 +94,7 @@ class ViewController: UIViewController {
     }
     
     // MARK: - Private Methods
-    private func setupMainLabel() {
-        mainLabel.text = String(redSlider.value)
-        mainLabel.font = UIFont.systemFont(ofSize: 35)
-        mainLabel.textAlignment = .center
-        mainLabel.numberOfLines = 2
-    }
+    
     
     private func setupRedLabel() {
         redLabel.text = String(redSlider.value)
