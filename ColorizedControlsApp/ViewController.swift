@@ -13,6 +13,11 @@ class ViewController: UIViewController {
     @IBOutlet var colorView: UIView!
     @IBOutlet var segmentedControl: UISegmentedControl!
     @IBOutlet var mainLabel: UILabel!
+    
+    @IBOutlet var redLabel: UILabel!
+    @IBOutlet var greenLabel: UILabel!
+    @IBOutlet var blueLabel: UILabel!
+    
     @IBOutlet var redSlider: UISlider!
     @IBOutlet var greenSlider: UISlider!
     @IBOutlet var blueSlider: UISlider!
@@ -21,8 +26,11 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         segmentedControl.insertSegment(withTitle: "Third", at: 2, animated: false)
-        setupMainLabel()
+        
         setupRedSlider()
+        setupMainLabel()
+        setupRedLabel()
+        
         
     }
     
@@ -49,6 +57,19 @@ class ViewController: UIViewController {
     }
     
     @IBAction func redSliderAction() {
+        redLabel.text = "\(round(redSlider.value * 100) / 100 / 255) "
+        
+        /*
+        colorView.backgroundColor = colorView.backgroundColor?.withAlphaComponent(CGFloat(redSlider.value))
+         */
+        
+        colorView.backgroundColor =  UIColor(
+            red: CGFloat(redSlider.value)/255,
+            green: 0,
+            blue: 0,
+            alpha: 1)
+        
+        
         
     }
     
@@ -60,13 +81,18 @@ class ViewController: UIViewController {
         mainLabel.numberOfLines = 2
     }
     
+    private func setupRedLabel() {
+        redLabel.text = String(redSlider.value)
+        
+    }
+    
     private func setupRedSlider() {
         redSlider.value = 1
         redSlider.minimumValue = 0
         redSlider.maximumValue = 255
-        redSlider.minimumTrackTintColor = .yellow
-        redSlider.maximumTrackTintColor = .red
-        redSlider.thumbTintColor = .blue
+        redSlider.minimumTrackTintColor = .red
+        redSlider.maximumTrackTintColor = .gray
+        redSlider.thumbTintColor = .white
     }
 
 
