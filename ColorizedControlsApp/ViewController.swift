@@ -42,15 +42,15 @@ class ViewController: UIViewController {
     
     // MARK: - IB Actions
     @IBAction func redSliderAction() {
-        sliderAction(label: redLabel, slider: redSlider, color: .red)
+        sliderAction(label: redLabel, slider: redSlider)
     }
     
     @IBAction func greenSliderAction() {
-        sliderAction(label: greenLabel, slider: greenSlider, color: .green)
+        sliderAction(label: greenLabel, slider: greenSlider)
     }
     
     @IBAction func blueSliderAction() {
-        sliderAction(label: blueLabel, slider: blueSlider, color: .blue)
+        sliderAction(label: blueLabel, slider: blueSlider)
     }
     
     // MARK: - Private Methods
@@ -63,17 +63,17 @@ class ViewController: UIViewController {
         slider.thumbTintColor = .white
     }
     
-    private func sliderAction(label: UILabel, slider: UISlider, color: UIColor) {
+    private func sliderAction(label: UILabel, slider: UISlider) {
         label.text = "\(round(slider.value * 100 / 255) / 100 )"
         
-        switch color {
-        case .red:
+        switch label {
+        case redLabel:
             colorView.backgroundColor =  UIColor(
                 red: CGFloat(slider.value)/255,
                 green: CGFloat(greenSlider.value)/255,
                 blue: CGFloat(blueSlider.value)/255,
                 alpha: 1)
-        case .green:
+        case greenLabel:
             colorView.backgroundColor =  UIColor(
                 red: CGFloat(redSlider.value)/255,
                 green: CGFloat(slider.value)/255,
