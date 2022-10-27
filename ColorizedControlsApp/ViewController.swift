@@ -46,6 +46,7 @@ class ViewController: UIViewController {
     }
     
     // MARK: - IB Actions
+    /*
     @IBAction func segmentedControlAction() {
         switch segmentedControl.selectedSegmentIndex {
         case 0:
@@ -59,14 +60,15 @@ class ViewController: UIViewController {
             mainLabel.textColor = .yellow
         }
     }
+     */
     
     @IBAction func redSliderAction() {
 //        sliderAction(label: redLabel, slider: redSlider)
         redLabel.text = "\(round(redSlider.value * 100 / 255) / 100 )"
         colorView.backgroundColor =  UIColor(
             red: CGFloat(redSlider.value)/255,
-            green: 0,
-            blue: 0,
+            green: CGFloat(greenSlider.value)/255,
+            blue: CGFloat(blueSlider.value)/255,
             alpha: 1)
         
     }
@@ -75,9 +77,9 @@ class ViewController: UIViewController {
 //        sliderAction(label: greenLabel, slider: greenSlider)
         greenLabel.text = "\(round(greenSlider.value * 100 / 255) / 100 )"
         colorView.backgroundColor =  UIColor(
-            red: 0,
+            red: CGFloat(redSlider.value)/255,
             green: CGFloat(greenSlider.value)/255,
-            blue: 0,
+            blue: CGFloat(blueSlider.value)/255,
             alpha: 1)
         
     }
@@ -86,8 +88,8 @@ class ViewController: UIViewController {
 //        sliderAction(label: blueLabel, slider: blueSlider)
         blueLabel.text = "\(round(blueSlider.value * 100 / 255) / 100 )"
         colorView.backgroundColor =  UIColor(
-            red: 0,
-            green: 0,
+            red: CGFloat(redSlider.value)/255,
+            green: CGFloat(greenSlider.value)/255,
             blue: CGFloat(blueSlider.value)/255,
             alpha: 1)
         
