@@ -24,132 +24,68 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        setupRedSlider()
-        setupRedLabel()
+        setupSlider(slider: redSlider, color: .red)
+        redLabel.text = String(redSlider.value)
         
-        setupGreenSlider()
-        setupGreenLabel()
+        setupSlider(slider: greenSlider, color: .green)
+        greenLabel.text = String(greenSlider.value)
         
-        setupBlueSlider()
-        setupBlueLabel()
-        
-        
-        
-        
+        setupSlider(slider: blueSlider, color: .blue)
+        blueLabel.text = String(blueSlider.value)
     }
     
     override func viewDidLayoutSubviews() {
         colorView.layer.borderWidth = 3
         colorView.layer.borderColor = UIColor.gray.cgColor
         colorView.layer.cornerRadius = colorView.frame.height / 8
-        
     }
     
     // MARK: - IB Actions
-    /*
-    @IBAction func segmentedControlAction() {
-        switch segmentedControl.selectedSegmentIndex {
-        case 0:
-            mainLabel.text = "The first segment is selected"
-            mainLabel.textColor = .red
-        case 1:
-            mainLabel.text = "The second segment is selected"
-            mainLabel.textColor = .green
-        default:
-            mainLabel.text = "The third segment is selected"
-            mainLabel.textColor = .yellow
-        }
-    }
-     */
-    
     @IBAction func redSliderAction() {
-//        sliderAction(label: redLabel, slider: redSlider)
-        redLabel.text = "\(round(redSlider.value * 100 / 255) / 100 )"
-        colorView.backgroundColor =  UIColor(
-            red: CGFloat(redSlider.value)/255,
-            green: CGFloat(greenSlider.value)/255,
-            blue: CGFloat(blueSlider.value)/255,
-            alpha: 1)
-        
+        sliderAction(label: redLabel, slider: redSlider, color: .red)
     }
     
     @IBAction func greenSliderAction() {
-//        sliderAction(label: greenLabel, slider: greenSlider)
-        greenLabel.text = "\(round(greenSlider.value * 100 / 255) / 100 )"
-        colorView.backgroundColor =  UIColor(
-            red: CGFloat(redSlider.value)/255,
-            green: CGFloat(greenSlider.value)/255,
-            blue: CGFloat(blueSlider.value)/255,
-            alpha: 1)
-        
+        sliderAction(label: greenLabel, slider: greenSlider, color: .green)
     }
     
     @IBAction func blueSliderAction() {
-//        sliderAction(label: blueLabel, slider: blueSlider)
-        blueLabel.text = "\(round(blueSlider.value * 100 / 255) / 100 )"
-        colorView.backgroundColor =  UIColor(
-            red: CGFloat(redSlider.value)/255,
-            green: CGFloat(greenSlider.value)/255,
-            blue: CGFloat(blueSlider.value)/255,
-            alpha: 1)
-        
+        sliderAction(label: blueLabel, slider: blueSlider, color: .blue)
     }
     
     // MARK: - Private Methods
+    private func setupSlider(slider: UISlider, color: UIColor) {
+        slider.value = 0
+        slider.minimumValue = 0
+        slider.maximumValue = 255
+        slider.minimumTrackTintColor = color
+        slider.maximumTrackTintColor = .gray
+        slider.thumbTintColor = .white
+    }
     
-    
-    private func setupRedLabel() {
-        redLabel.text = String(redSlider.value)
+    private func sliderAction(label: UILabel, slider: UISlider, color: UIColor) {
+        label.text = "\(round(slider.value * 100 / 255) / 100 )"
         
+        switch color {
+        case .red:
+            colorView.backgroundColor =  UIColor(
+                red: CGFloat(slider.value)/255,
+                green: CGFloat(greenSlider.value)/255,
+                blue: CGFloat(blueSlider.value)/255,
+                alpha: 1)
+        case .green:
+            colorView.backgroundColor =  UIColor(
+                red: CGFloat(redSlider.value)/255,
+                green: CGFloat(slider.value)/255,
+                blue: CGFloat(blueSlider.value)/255,
+                alpha: 1)
+        default:
+            colorView.backgroundColor =  UIColor(
+                red: CGFloat(redSlider.value)/255,
+                green: CGFloat(greenSlider.value)/255,
+                blue: CGFloat(slider.value)/255,
+                alpha: 1)
+        }
     }
-    
-    private func setupRedSlider() {
-        redSlider.value = 1
-        redSlider.minimumValue = 0
-        redSlider.maximumValue = 255
-        redSlider.minimumTrackTintColor = .red
-        redSlider.maximumTrackTintColor = .gray
-        redSlider.thumbTintColor = .white
-    }
-    
-    private func setupGreenLabel() {
-        greenLabel.text = String(greenSlider.value)
-        
-    }
-    
-    private func setupGreenSlider() {
-        greenSlider.value = 1
-        greenSlider.minimumValue = 0
-        greenSlider.maximumValue = 255
-        greenSlider.minimumTrackTintColor = .green
-        greenSlider.maximumTrackTintColor = .gray
-        greenSlider.thumbTintColor = .white
-    }
-    
-    
-    private func setupBlueLabel() {
-        blueLabel.text = String(blueSlider.value)
-        
-    }
-    
-    private func setupBlueSlider() {
-        blueSlider.value = 1
-        blueSlider.minimumValue = 0
-        blueSlider.maximumValue = 255
-        blueSlider.minimumTrackTintColor = .blue
-        blueSlider.maximumTrackTintColor = .gray
-        blueSlider.thumbTintColor = .white
-    }
-    
-//    private func sliderAction(label: UILabel, slider: UISlider) {
-//        label.text = "\(round(slider.value * 100 / 255) / 100 )"
-//        colorView.backgroundColor =  UIColor(
-//            red: CGFloat(slider.value)/255,
-//            green: 0,
-//            blue: 0,
-//            alpha: 1)
-//    }
-
-
 }
 
