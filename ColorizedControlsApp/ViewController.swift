@@ -69,21 +69,21 @@ class ViewController: UIViewController {
         switch label {
         case redLabel:
             colorView.backgroundColor =  UIColor(
-                red: CGFloat(slider.value)/255,
-                green: CGFloat(greenSlider.value)/255,
-                blue: CGFloat(blueSlider.value)/255,
+                red: CGFloat(slider.value) / 255,
+                green: CGFloat(greenSlider.value) / 255,
+                blue: CGFloat(blueSlider.value) / 255,
                 alpha: 1)
         case greenLabel:
             colorView.backgroundColor =  UIColor(
-                red: CGFloat(redSlider.value)/255,
-                green: CGFloat(slider.value)/255,
-                blue: CGFloat(blueSlider.value)/255,
+                red: CGFloat(redSlider.value) / 255,
+                green: CGFloat(slider.value) / 255,
+                blue: CGFloat(blueSlider.value) / 255,
                 alpha: 1)
         default:
             colorView.backgroundColor =  UIColor(
-                red: CGFloat(redSlider.value)/255,
-                green: CGFloat(greenSlider.value)/255,
-                blue: CGFloat(slider.value)/255,
+                red: CGFloat(redSlider.value) / 255,
+                green: CGFloat(greenSlider.value) / 255,
+                blue: CGFloat(slider.value) / 255,
                 alpha: 1)
         }
     }
