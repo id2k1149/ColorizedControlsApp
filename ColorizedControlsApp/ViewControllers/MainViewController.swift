@@ -30,10 +30,6 @@ class MainViewController: UIViewController {
         
         setColor()
         setValue(for: redLabel, greenLabel, blueLabel)
-        
-        redLabel.text = String(format: "%.2f", redSlider.value)
-        greenLabel.text = String(format: "%.2f", greenSlider.value)
-        blueLabel.text = String(format: "%.2f", blueSlider.value)
     }
     
     // MARK: - IBActions
@@ -73,4 +69,3 @@ class MainViewController: UIViewController {
         String(format: "%.2f", slider.value)
     }
 }
-
