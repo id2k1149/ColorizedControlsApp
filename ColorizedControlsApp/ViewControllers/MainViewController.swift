@@ -54,14 +54,6 @@ class MainViewController: UIViewController {
     }
     
     // MARK: - Private Methods
-    private func setupSlider(slider: UISlider, color: UIColor) {
-        slider.value = 0
-        slider.minimumValue = 0
-        slider.maximumValue = 255
-        slider.minimumTrackTintColor = color
-        slider.maximumTrackTintColor = .gray
-        slider.thumbTintColor = .white
-    }
     
     private func sliderAction(label: UILabel, slider: UISlider) {
         label.text = "\(round(slider.value * 100 / 255) / 100 )"
