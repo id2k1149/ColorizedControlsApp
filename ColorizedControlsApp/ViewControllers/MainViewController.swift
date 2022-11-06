@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class MainViewController: UIViewController {
 
     // MARK: - IB Outlets
     @IBOutlet var colorView: UIView!
