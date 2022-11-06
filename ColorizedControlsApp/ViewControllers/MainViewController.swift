@@ -9,7 +9,7 @@ import UIKit
 
 class MainViewController: UIViewController {
 
-    // MARK: - IB Outlets
+    // MARK: - IBOutlets
     @IBOutlet var colorView: UIView!
     
     @IBOutlet var redLabel: UILabel!
@@ -20,9 +20,13 @@ class MainViewController: UIViewController {
     @IBOutlet var greenSlider: UISlider!
     @IBOutlet var blueSlider: UISlider!
     
-    
+    // MARK: - LifeCicle view
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        colorView.layer.borderWidth = 3
+        colorView.layer.borderColor = UIColor.gray.cgColor
+        colorView.layer.cornerRadius = colorView.frame.height / 8
         
         setupSlider(slider: redSlider, color: .red)
         redLabel.text = String(redSlider.value)
@@ -32,12 +36,6 @@ class MainViewController: UIViewController {
         
         setupSlider(slider: blueSlider, color: .blue)
         blueLabel.text = String(blueSlider.value)
-    }
-    
-    override func viewDidLayoutSubviews() {
-        colorView.layer.borderWidth = 3
-        colorView.layer.borderColor = UIColor.gray.cgColor
-        colorView.layer.cornerRadius = colorView.frame.height / 8
     }
     
     // MARK: - IB Actions
