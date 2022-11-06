@@ -28,13 +28,15 @@ class MainViewController: UIViewController {
         colorView.layer.borderColor = UIColor.gray.cgColor
         colorView.layer.cornerRadius = colorView.frame.height / 8
         
-        setupSlider(slider: redSlider, color: .red)
+        colorView.backgroundColor = UIColor(
+            red: CGFloat(redSlider.value),
+            green: CGFloat(greenSlider.value),
+            blue: CGFloat(blueSlider.value),
+            alpha: 1
+        )
+        
         redLabel.text = String(redSlider.value)
-        
-        setupSlider(slider: greenSlider, color: .green)
         greenLabel.text = String(greenSlider.value)
-        
-        setupSlider(slider: blueSlider, color: .blue)
         blueLabel.text = String(blueSlider.value)
     }
     
