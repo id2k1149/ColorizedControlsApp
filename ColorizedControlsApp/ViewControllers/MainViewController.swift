@@ -39,7 +39,11 @@ class MainViewController: UIViewController {
     // MARK: - IBActions
     @IBAction func rgbSlider(_ sender: UISlider) {
         setColor()
-        setValue(for: redLabel, greenLabel, blueLabel)
+        switch sender {
+            case redSlider: setValue(for: redLabel)
+            case greenSlider: setValue(for: greenLabel)
+            default: setValue(for: blueLabel)
+        }
     }
     
     // MARK: - Private methods
