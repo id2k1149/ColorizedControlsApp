@@ -80,6 +80,7 @@
                                                 <color key="tintColor" red="1" green="0.0" blue="0.01666666667" alpha="1" colorSpace="calibratedRGB"/>
                                                 <connections>
                                                     <action selector="redSliderAction" destination="BYZ-38-t0r" eventType="valueChanged" id="ETE-bd-9ST"/>
+                                                    <action selector="rgbSlider:" destination="BYZ-38-t0r" eventType="valueChanged" id="QT1-fC-298"/>
                                                 </connections>
                                             </slider>
                                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="Cfj-oY-TEH" userLabel="GreenSlider">
@@ -87,6 +88,7 @@
                                                 <color key="tintColor" systemColor="systemGreenColor"/>
                                                 <connections>
                                                     <action selector="greenSliderAction" destination="BYZ-38-t0r" eventType="valueChanged" id="mVN-tV-c41"/>
+                                                    <action selector="rgbSlider:" destination="BYZ-38-t0r" eventType="valueChanged" id="Hqy-F0-I7E"/>
                                                 </connections>
                                             </slider>
                                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="65g-90-NWX" userLabel="BlueSlider">
@@ -94,6 +96,7 @@
                                                 <color key="tintColor" systemColor="systemBlueColor"/>
                                                 <connections>
                                                     <action selector="blueSliderAction" destination="BYZ-38-t0r" eventType="valueChanged" id="gGn-uk-LjK"/>
+                                                    <action selector="rgbSlider:" destination="BYZ-38-t0r" eventType="valueChanged" id="3cd-Np-Cam"/>
                                                 </connections>
                                             </slider>
                                         </subviews>
@@ -118,12 +121,9 @@
                     </view>
                     <connections>
                         <outlet property="blueLabel" destination="4Mt-68-E5m" id="Ee4-Km-Ucw"/>
-                        <outlet property="blueSlider" destination="65g-90-NWX" id="zp3-K0-Bvg"/>
                         <outlet property="colorView" destination="0sa-hv-LVR" id="5SI-Mj-7uK"/>
                         <outlet property="greenLabel" destination="QOf-jx-KND" id="pPV-i9-nsp"/>
-                        <outlet property="greenSlider" destination="Cfj-oY-TEH" id="J4e-Bx-UsS"/>
                         <outlet property="redLabel" destination="q5f-q5-m9S" id="kGg-dr-qKE"/>
-                        <outlet property="redSlider" destination="yeB-cK-J4B" id="vde-Kw-hWj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

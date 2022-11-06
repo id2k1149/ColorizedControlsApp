@@ -41,20 +41,10 @@ class MainViewController: UIViewController {
     }
     
     // MARK: - IB Actions
-    @IBAction func redSliderAction() {
-        sliderAction(label: redLabel, slider: redSlider)
-    }
-    
-    @IBAction func greenSliderAction() {
-        sliderAction(label: greenLabel, slider: greenSlider)
-    }
-    
-    @IBAction func blueSliderAction() {
-        sliderAction(label: blueLabel, slider: blueSlider)
+    @IBAction func rgbSlider(_ sender: UISlider) {
     }
     
     // MARK: - Private Methods
-    
     private func sliderAction(label: UILabel, slider: UISlider) {
         label.text = "\(round(slider.value * 100 / 255) / 100 )"
         
