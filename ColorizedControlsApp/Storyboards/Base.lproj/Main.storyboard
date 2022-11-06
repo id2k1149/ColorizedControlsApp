@@ -46,54 +46,51 @@
                                             </label>
                                         </subviews>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="55" id="401-UC-AWN"/>
+                                            <constraint firstAttribute="width" constant="55" id="401-UC-AWN" userLabel="width = 60"/>
                                         </constraints>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="2i4-If-8SS" userLabel="Stack Value View">
-                                        <rect key="frame" x="63" y="5" width="30" height="114.5"/>
+                                        <rect key="frame" x="63" y="5" width="41.5" height="114.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q5f-q5-m9S" userLabel="Red Value">
-                                                <rect key="frame" x="0.0" y="0.0" width="30" height="21.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="41.5" height="21.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QOf-jx-KND" userLabel="Green Value">
-                                                <rect key="frame" x="0.0" y="46.5" width="30" height="21.5"/>
+                                                <rect key="frame" x="0.0" y="46.5" width="41.5" height="21.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Mt-68-E5m" userLabel="Blue Value">
-                                                <rect key="frame" x="0.0" y="93" width="30" height="21.5"/>
+                                                <rect key="frame" x="0.0" y="93" width="41.5" height="21.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="30" id="FCc-5k-aZo"/>
-                                        </constraints>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="17" translatesAutoresizingMaskIntoConstraints="NO" id="2wo-pJ-rSJ" userLabel="Stack Slider View">
-                                        <rect key="frame" x="101" y="0.0" width="242" height="124"/>
+                                        <rect key="frame" x="112.5" y="0.0" width="230.5" height="124"/>
                                         <subviews>
                                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="yeB-cK-J4B" userLabel="RedSlider">
-                                                <rect key="frame" x="-2" y="0.0" width="246" height="31"/>
+                                                <rect key="frame" x="-2" y="0.0" width="234.5" height="31"/>
                                                 <color key="tintColor" red="1" green="0.0" blue="0.01666666667" alpha="1" colorSpace="calibratedRGB"/>
                                                 <connections>
                                                     <action selector="redSliderAction" destination="BYZ-38-t0r" eventType="valueChanged" id="ETE-bd-9ST"/>
                                                 </connections>
                                             </slider>
                                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="Cfj-oY-TEH" userLabel="GreenSlider">
-                                                <rect key="frame" x="-2" y="47" width="246" height="31"/>
+                                                <rect key="frame" x="-2" y="47" width="234.5" height="31"/>
                                                 <color key="tintColor" systemColor="systemGreenColor"/>
                                                 <connections>
                                                     <action selector="greenSliderAction" destination="BYZ-38-t0r" eventType="valueChanged" id="mVN-tV-c41"/>
                                                 </connections>
                                             </slider>
                                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="65g-90-NWX" userLabel="BlueSlider">
-                                                <rect key="frame" x="-2" y="94" width="246" height="31"/>
+                                                <rect key="frame" x="-2" y="94" width="234.5" height="31"/>
                                                 <color key="tintColor" systemColor="systemBlueColor"/>
                                                 <connections>
                                                     <action selector="blueSliderAction" destination="BYZ-38-t0r" eventType="valueChanged" id="gGn-uk-LjK"/>
@@ -102,6 +99,9 @@
                                         </subviews>
                                     </stackView>
                                 </subviews>
+                                <constraints>
+                                    <constraint firstItem="2i4-If-8SS" firstAttribute="width" secondItem="YBt-kh-RIc" secondAttribute="width" multiplier="0.75" id="evY-TI-kXE"/>
+                                </constraints>
                             </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
