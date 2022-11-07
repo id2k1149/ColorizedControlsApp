@@ -37,6 +37,7 @@ class MainViewController: UIViewController {
         colorView.layer.cornerRadius = colorView.frame.height / 8
         
         colorView.backgroundColor = screenBackground
+        
         setSlider(with: screenBackground, for: redSlider, greenSlider, blueSlider)
         setValue(for: redLabel, greenLabel, blueLabel)
         setTextField(for: redTF, greenTF, blueTF)
@@ -69,11 +70,7 @@ class MainViewController: UIViewController {
     }
     
     @IBAction func doneButtonTaped(_ sender: UIButton) {
-        // force end edit TF
-        view.endEditing(true)
-        
-        guard let newColorView = colorView.backgroundColor else { return }
-        delegate.setBackground(for: newColorView)
+        delegate.setBackground(for: colorView.backgroundColor ?? .systemBackground)
         dismiss(animated: true)
     }
     
