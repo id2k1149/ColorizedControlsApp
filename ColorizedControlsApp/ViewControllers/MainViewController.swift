@@ -25,10 +25,6 @@ class MainViewController: UIViewController {
     @IBOutlet weak var blueTF: UITextField!
     
     var screenBackground: UIColor!
-    var redColor: CGFloat = 0
-    var greenColor: CGFloat = 0
-    var blueColor: CGFloat = 0
-    var alpha: CGFloat = 1
     
     var delegate: MainViewControllerDelegate!
     
@@ -92,6 +88,11 @@ class MainViewController: UIViewController {
     }
     
     private func setSlider(with screenRGB: UIColor, for sliders: UISlider...) {
+        var redColor: CGFloat = 0
+        var greenColor: CGFloat = 0
+        var blueColor: CGFloat = 0
+        var alpha: CGFloat = 1
+        
         screenRGB.getRed(&redColor, green: &greenColor, blue: &blueColor, alpha: &alpha)
         
         sliders.forEach { slider in
