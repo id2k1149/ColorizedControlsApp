@@ -99,7 +99,9 @@ class MainViewController: UIViewController {
             case greenSlider:
                 slider.value = Float(greenColor)
             default:
-                slider.value = Float(blueColor)            }
+                slider.value = Float(blueColor)
+                
+            }
         }
     }
     
