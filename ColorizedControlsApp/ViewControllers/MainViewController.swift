@@ -44,25 +44,30 @@ class MainViewController: UIViewController {
         setSlider(with: screenBackground, for: redSlider, greenSlider, blueSlider)
         setValue(for: redLabel, greenLabel, blueLabel)
         setTextField(for: redTF, greenTF, blueTF)
+        
+        
     }
     
     // MARK: - IBActions
     @IBAction func sliderAction(_ sender: UISlider) {
         setColorWithSliders()
         switch sender {
-            case redSlider:
+        case redSlider:
             setValue(for: redLabel)
             setTextField(for: redTF)
-            case greenSlider:
+        case greenSlider:
             setValue(for: greenLabel)
             setTextField(for: greenTF)
-            default:
+        default:
             setValue(for: blueLabel)
             setTextField(for: blueTF)
         }
     }
     
     @IBAction func doneButtonTaped(_ sender: UIButton) {
+        // force end edit TF
+        view.endEditing(true)
+        
         guard let newColorView = colorView.backgroundColor else { return }
         delegate.setBackground(for: newColorView)
         dismiss(animated: true)
@@ -121,15 +126,59 @@ class MainViewController: UIViewController {
             switch textField {
             case redTF:
                 textField.text = getValue(from: redSlider)
+                textField.keyboardType = .decimalPad
+                textField.inputAccessoryView = toolBar()
             case greenTF:
                 textField.text = getValue(from: greenSlider)
+                textField.keyboardType = .decimalPad
+                textField.inputAccessoryView = toolBar()
             default:
                 textField.text = getValue(from: blueSlider)
+                textField.keyboardType = .decimalPad
+                textField.inputAccessoryView = toolBar()
             }
         }
     }
     
     private func getValue(from slider: UISlider) -> String {
         String(format: "%.2f", slider.value)
+    }
+}
+
+// MARK: - UITextFieldDelegate
+extension MainViewController: UITextFieldDelegate {
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        guard let newValue = textField.text else { return }
+        guard let numberValue = Float(newValue) else { return }
+
+        switch textField {
+        case redTF:
+            redSlider.value = numberValue
+        case greenTF:
+            greenSlider.value = numberValue
+        default:
+            blueSlider.value = numberValue
+        }
+    }
+}
+
+extension UIViewController{
+    func toolBar() -> UIToolbar{
+        let toolBar = UIToolbar()
+        toolBar.barStyle = .default
+        toolBar.isTranslucent = true
+        toolBar.barTintColor = UIColor.init(red: 0/255, green: 0/255, blue: 0/255, alpha: 1)
+        let space = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+        var buttonTitle = "Done"
+        let doneButton = UIBarButtonItem(title: buttonTitle, style: .done, target: self, action: #selector(onClickDoneButton))
+        doneButton.tintColor = .white
+        toolBar.setItems([space, doneButton], animated: false)
+        toolBar.isUserInteractionEnabled = true
+        toolBar.sizeToFit()
+        return toolBar
+    }
+
+    @objc func onClickDoneButton(){
+        view.endEditing(true)
     }
 }

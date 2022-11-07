@@ -167,7 +167,7 @@
                                 </constraints>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lNz-k0-6dw">
-                                <rect key="frame" x="100" y="479.5" width="175" height="44"/>
+                                <rect key="frame" x="100" y="489.5" width="175" height="44"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="26"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                 <state key="normal" title="Done">
@@ -184,7 +184,7 @@
                             <constraint firstItem="0sa-hv-LVR" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="32o-eD-FJT"/>
                             <constraint firstItem="0sa-hv-LVR" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.20015" id="4OK-Tj-PTM"/>
                             <constraint firstItem="Qet-Tz-3gi" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="Bee-SH-bw8"/>
-                            <constraint firstItem="lNz-k0-6dw" firstAttribute="top" secondItem="Qet-Tz-3gi" secondAttribute="bottom" constant="140" id="DSB-8R-tGh"/>
+                            <constraint firstItem="lNz-k0-6dw" firstAttribute="top" secondItem="Qet-Tz-3gi" secondAttribute="bottom" constant="150" id="DSB-8R-tGh"/>
                             <constraint firstItem="lNz-k0-6dw" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="100" id="Gcc-EK-rQm"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="lNz-k0-6dw" secondAttribute="trailing" constant="100" id="H2T-xB-CiM"/>
                             <constraint firstItem="0sa-hv-LVR" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="32" id="JFq-GN-DO4"/>
