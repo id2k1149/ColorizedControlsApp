@@ -22,7 +22,7 @@ class MainViewController: UIViewController {
     
     @IBOutlet weak var redTF: UITextField!
     @IBOutlet weak var greenTF: UITextField!
-    @IBOutlet weak var blurTF: UITextField!
+    @IBOutlet weak var blueTF: UITextField!
     
     var screenBackground: UIColor!
     var redColor: CGFloat = 0
@@ -43,15 +43,22 @@ class MainViewController: UIViewController {
         setColorForColorView(colorViewRGB: screenBackground)
         setSlider(with: screenBackground, for: redSlider, greenSlider, blueSlider)
         setValue(for: redLabel, greenLabel, blueLabel)
+        setTextField(for: redTF, greenTF, blueTF)
     }
     
     // MARK: - IBActions
     @IBAction func sliderAction(_ sender: UISlider) {
         setColorWithSliders()
         switch sender {
-            case redSlider: setValue(for: redLabel)
-            case greenSlider: setValue(for: greenLabel)
-            default: setValue(for: blueLabel)
+            case redSlider:
+            setValue(for: redLabel)
+            setTextField(for: redTF)
+            case greenSlider:
+            setValue(for: greenLabel)
+            setTextField(for: greenTF)
+            default:
+            setValue(for: blueLabel)
+            setTextField(for: blueTF)
         }
     }
     
@@ -105,6 +112,19 @@ class MainViewController: UIViewController {
                 label.text = getValue(from: greenSlider)
             default:
                 label.text = getValue(from: blueSlider)
+            }
+        }
+    }
+    
+    private func setTextField(for textFields: UITextField...) {
+        textFields.forEach { textField in
+            switch textField {
+            case redTF:
+                textField.text = getValue(from: redSlider)
+            case greenTF:
+                textField.text = getValue(from: greenSlider)
+            default:
+                textField.text = getValue(from: blueSlider)
             }
         }
     }
