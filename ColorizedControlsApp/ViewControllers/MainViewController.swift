@@ -50,6 +50,12 @@ class MainViewController: UIViewController {
         blueTF.delegate = self
     }
     
+    // Метод для скрытия клавиатуры тапом по экрану
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesBegan(touches, with: event)
+        view.endEditing(true)
+    }
+    
     // MARK: - IBActions
     @IBAction func sliderAction(_ sender: UISlider) {
         setColorWithSliders()
@@ -156,15 +162,15 @@ extension MainViewController: UITextFieldDelegate {
         switch textField {
         case redTF:
             redSlider.value = numberValue
-            redLabel.text = String(numberValue)
+            redLabel.text = getValue(from: redSlider)
             setColorWithSliders()
         case greenTF:
             greenSlider.value = numberValue
-            greenLabel.text = String(numberValue)
+            greenLabel.text = getValue(from: greenSlider)
             setColorWithSliders()
         default:
             blueSlider.value = numberValue
-            blueLabel.text = String(numberValue)
+            blueLabel.text = getValue(from: blueSlider)
             setColorWithSliders()
         }
     }
