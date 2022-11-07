@@ -36,7 +36,7 @@ class MainViewController: UIViewController {
         colorView.layer.borderColor = UIColor.gray.cgColor
         colorView.layer.cornerRadius = colorView.frame.height / 8
         
-        setColorForColorView(screenRGB: screenBackground)
+        setColorForColorView(colorViewRGB: screenBackground)
         setSlider(with: screenBackground, for: redSlider, greenSlider, blueSlider)
         setValue(for: redLabel, greenLabel, blueLabel)
     }
@@ -58,8 +58,8 @@ class MainViewController: UIViewController {
     }
     
     // MARK: - Private methods
-    private func setColorForColorView(screenRGB: UIColor) {
-        screenRGB.getRed(&redColor, green: &greenColor, blue: &blueColor, alpha: &alpha)
+    private func setColorForColorView(colorViewRGB: UIColor) {
+        colorViewRGB.getRed(&redColor, green: &greenColor, blue: &blueColor, alpha: &alpha)
         
         colorView.backgroundColor = UIColor(
             red: redColor,
