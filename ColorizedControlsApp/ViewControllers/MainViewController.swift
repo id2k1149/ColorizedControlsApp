@@ -26,6 +26,8 @@ class MainViewController: UIViewController {
     var blueColor: CGFloat = 0
     var alpha: CGFloat = 1
     
+    var delegate: MainViewControllerDelegate!
+    
     // MARK: - LifeCicle view
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,6 +49,12 @@ class MainViewController: UIViewController {
             case greenSlider: setValue(for: greenLabel)
             default: setValue(for: blueLabel)
         }
+    }
+    
+    @IBAction func doneButtonTaped(_ sender: UIButton) {
+        guard let newColorView = colorView.backgroundColor else { return }
+        delegate.setBackground(for: newColorView)
+        dismiss(animated: true)
     }
     
     // MARK: - Private methods

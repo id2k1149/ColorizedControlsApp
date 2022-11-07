@@ -153,6 +153,9 @@
                                 <state key="normal" title="Done">
                                     <color key="titleColor" systemColor="systemBackgroundColor"/>
                                 </state>
+                                <connections>
+                                    <action selector="doneButtonTaped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="o6x-hQ-tGO"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
