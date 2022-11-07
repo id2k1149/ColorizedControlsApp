@@ -11,7 +11,7 @@
         <!--Start View Controller-->
         <scene sceneID="cgB-R6-xzR">
             <objects>
-                <viewController id="reW-yH-5Ku" userLabel="Start View Controller" sceneMemberID="viewController">
+                <viewController id="reW-yH-5Ku" userLabel="Start View Controller" customClass="StartViewController" customModule="ColorizedControlsApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ATQ-8P-XkL">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -25,6 +25,9 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="screenBackgroundLabel" destination="ATQ-8P-XkL" id="ESp-QZ-zho"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IY5-5r-DI1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
