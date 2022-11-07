@@ -11,16 +11,12 @@ class StartViewController: UIViewController {
 
     @IBOutlet var screenBackgroundLabel: UIView!
     
-    var red: CGFloat = 0
-    var green: CGFloat = 0
-    var blue: CGFloat = 0
-    var alpha: CGFloat = 0
-
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        screenBackgroundLabel.backgroundColor?
-            .getRed(&red, green: &green, blue: &blue, alpha: &alpha)
-        
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let mainVC = segue.destination as? MainViewController else { return }
+        mainVC.screenBackground = self.view.backgroundColor
     }
 }
