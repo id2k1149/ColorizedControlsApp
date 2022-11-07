@@ -26,7 +26,6 @@ class MainViewController: UIViewController {
     var blueColor: CGFloat = 0
     var alpha: CGFloat = 1
     
-    
     // MARK: - LifeCicle view
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,8 +35,8 @@ class MainViewController: UIViewController {
         colorView.layer.cornerRadius = colorView.frame.height / 8
         
         
-        
-        setColor(screenRGB: screenBackground)
+        setColorForColorView(screenRGB: screenBackground)
+        setSlider(with: screenBackground, for: redSlider, greenSlider, blueSlider)
         setValue(for: redLabel, greenLabel, blueLabel)
     }
     
@@ -52,7 +51,7 @@ class MainViewController: UIViewController {
     }
     
     // MARK: - Private methods
-    private func setColor(screenRGB: UIColor) {
+    private func setColorForColorView(screenRGB: UIColor) {
         screenRGB.getRed(&redColor, green: &greenColor, blue: &blueColor, alpha: &alpha)
         
         colorView.backgroundColor = UIColor(
@@ -61,6 +60,20 @@ class MainViewController: UIViewController {
             blue: blueColor,
             alpha: alpha
         )
+    }
+    
+    private func setSlider(with screenRGB: UIColor, for sliders: UISlider...) {
+        screenRGB.getRed(&redColor, green: &greenColor, blue: &blueColor, alpha: &alpha)
+        
+        sliders.forEach { slider in
+            switch slider {
+            case redSlider:
+                slider.value = Float(redColor)
+            case greenSlider:
+                slider.value = Float(greenColor)
+            default:
+                slider.value = Float(blueColor)            }
+        }
     }
     
     private func setValue(for labels: UILabel...) {
