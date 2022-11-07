@@ -42,7 +42,7 @@ class MainViewController: UIViewController {
     
     // MARK: - IBActions
     @IBAction func sliderAction(_ sender: UISlider) {
-//        setColor()
+        setColorWithSliders()
         switch sender {
             case redSlider: setValue(for: redLabel)
             case greenSlider: setValue(for: greenLabel)
@@ -59,6 +59,15 @@ class MainViewController: UIViewController {
             green: greenColor,
             blue: blueColor,
             alpha: alpha
+        )
+    }
+    
+    private func setColorWithSliders() {
+        colorView.backgroundColor = UIColor(
+            red: CGFloat(redSlider.value),
+            green: CGFloat(greenSlider.value),
+            blue: CGFloat(blueSlider.value),
+            alpha: 1
         )
     }
     
