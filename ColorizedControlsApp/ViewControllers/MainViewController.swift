@@ -20,6 +20,10 @@ class MainViewController: UIViewController {
     @IBOutlet weak var greenSlider: UISlider!
     @IBOutlet weak var blueSlider: UISlider!
     
+    @IBOutlet weak var redTF: UITextField!
+    @IBOutlet weak var greenTF: UITextField!
+    @IBOutlet weak var blurTF: UITextField!
+    
     var screenBackground: UIColor!
     var redColor: CGFloat = 0
     var greenColor: CGFloat = 0
