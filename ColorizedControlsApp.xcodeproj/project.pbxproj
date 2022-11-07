@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		50BFF56F29188C70007C3C19 /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50BFF56E29188C70007C3C19 /* StartViewController.swift */; };
 		50C2DCA529097A740002BB7A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50C2DCA429097A740002BB7A /* AppDelegate.swift */; };
 		50C2DCA729097A740002BB7A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50C2DCA629097A740002BB7A /* SceneDelegate.swift */; };
 		50C2DCA929097A740002BB7A /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50C2DCA829097A740002BB7A /* MainViewController.swift */; };
@@ -16,6 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		50BFF56E29188C70007C3C19 /* StartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
 		50C2DCA129097A740002BB7A /* ColorizedControlsApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ColorizedControlsApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		50C2DCA429097A740002BB7A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		50C2DCA629097A740002BB7A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -86,6 +88,7 @@
 		50D15D2329184B9D003D74C0 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				50BFF56E29188C70007C3C19 /* StartViewController.swift */,
 				50C2DCA829097A740002BB7A /* MainViewController.swift */,
 			);
 			path = ViewControllers;
@@ -163,6 +166,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				50C2DCA929097A740002BB7A /* MainViewController.swift in Sources */,
+				50BFF56F29188C70007C3C19 /* StartViewController.swift in Sources */,
 				50C2DCA529097A740002BB7A /* AppDelegate.swift in Sources */,
 				50C2DCA729097A740002BB7A /* SceneDelegate.swift in Sources */,
 			);
