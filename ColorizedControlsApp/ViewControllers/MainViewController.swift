@@ -45,7 +45,9 @@ class MainViewController: UIViewController {
         setValue(for: redLabel, greenLabel, blueLabel)
         setTextField(for: redTF, greenTF, blueTF)
         
-        
+        redTF.delegate = self
+        greenTF.delegate = self
+        blueTF.delegate = self
     }
     
     // MARK: - IBActions
@@ -154,10 +156,16 @@ extension MainViewController: UITextFieldDelegate {
         switch textField {
         case redTF:
             redSlider.value = numberValue
+            redLabel.text = String(numberValue)
+            setColorWithSliders()
         case greenTF:
             greenSlider.value = numberValue
+            greenLabel.text = String(numberValue)
+            setColorWithSliders()
         default:
             blueSlider.value = numberValue
+            blueLabel.text = String(numberValue)
+            setColorWithSliders()
         }
     }
 }
@@ -169,7 +177,7 @@ extension UIViewController{
         toolBar.isTranslucent = true
         toolBar.barTintColor = UIColor.init(red: 0/255, green: 0/255, blue: 0/255, alpha: 1)
         let space = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
-        var buttonTitle = "Done"
+        let buttonTitle = "Done"
         let doneButton = UIBarButtonItem(title: buttonTitle, style: .done, target: self, action: #selector(onClickDoneButton))
         doneButton.tintColor = .white
         toolBar.setItems([space, doneButton], animated: false)
