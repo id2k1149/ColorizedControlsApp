@@ -20,6 +20,10 @@ class MainViewController: UIViewController {
     @IBOutlet weak var greenSlider: UISlider!
     @IBOutlet weak var blueSlider: UISlider!
     
+    @IBOutlet weak var redTF: UITextField!
+    @IBOutlet weak var greenTF: UITextField!
+    @IBOutlet weak var blueTF: UITextField!
+    
     var screenBackground: UIColor!
     var redColor: CGFloat = 0
     var greenColor: CGFloat = 0
@@ -39,19 +43,39 @@ class MainViewController: UIViewController {
         setColorForColorView(colorViewRGB: screenBackground)
         setSlider(with: screenBackground, for: redSlider, greenSlider, blueSlider)
         setValue(for: redLabel, greenLabel, blueLabel)
+        setTextField(for: redTF, greenTF, blueTF)
+        
+        redTF.delegate = self
+        greenTF.delegate = self
+        blueTF.delegate = self
+    }
+    
+    // Метод для скрытия клавиатуры тапом по экрану
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesBegan(touches, with: event)
+        view.endEditing(true)
     }
     
     // MARK: - IBActions
     @IBAction func sliderAction(_ sender: UISlider) {
         setColorWithSliders()
         switch sender {
-            case redSlider: setValue(for: redLabel)
-            case greenSlider: setValue(for: greenLabel)
-            default: setValue(for: blueLabel)
+        case redSlider:
+            setValue(for: redLabel)
+            setTextField(for: redTF)
+        case greenSlider:
+            setValue(for: greenLabel)
+            setTextField(for: greenTF)
+        default:
+            setValue(for: blueLabel)
+            setTextField(for: blueTF)
         }
     }
     
     @IBAction func doneButtonTaped(_ sender: UIButton) {
+        // force end edit TF
+        view.endEditing(true)
+        
         guard let newColorView = colorView.backgroundColor else { return }
         delegate.setBackground(for: newColorView)
         dismiss(animated: true)
@@ -105,7 +129,70 @@ class MainViewController: UIViewController {
         }
     }
     
+    private func setTextField(for textFields: UITextField...) {
+        textFields.forEach { textField in
+            switch textField {
+            case redTF:
+                textField.text = getValue(from: redSlider)
+                textField.keyboardType = .decimalPad
+                textField.inputAccessoryView = toolBar()
+            case greenTF:
+                textField.text = getValue(from: greenSlider)
+                textField.keyboardType = .decimalPad
+                textField.inputAccessoryView = toolBar()
+            default:
+                textField.text = getValue(from: blueSlider)
+                textField.keyboardType = .decimalPad
+                textField.inputAccessoryView = toolBar()
+            }
+        }
+    }
+    
     private func getValue(from slider: UISlider) -> String {
         String(format: "%.2f", slider.value)
+    }
+}
+
+// MARK: - UITextFieldDelegate
+extension MainViewController: UITextFieldDelegate {
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        guard let newValue = textField.text else { return }
+        guard let numberValue = Float(newValue) else { return }
+
+        switch textField {
+        case redTF:
+            redSlider.value = numberValue
+            redLabel.text = getValue(from: redSlider)
+            setColorWithSliders()
+        case greenTF:
+            greenSlider.value = numberValue
+            greenLabel.text = getValue(from: greenSlider)
+            setColorWithSliders()
+        default:
+            blueSlider.value = numberValue
+            blueLabel.text = getValue(from: blueSlider)
+            setColorWithSliders()
+        }
+    }
+}
+
+extension UIViewController{
+    func toolBar() -> UIToolbar{
+        let toolBar = UIToolbar()
+        toolBar.barStyle = .default
+        toolBar.isTranslucent = true
+        toolBar.barTintColor = UIColor.init(red: 0/255, green: 0/255, blue: 0/255, alpha: 1)
+        let space = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+        let buttonTitle = "Done"
+        let doneButton = UIBarButtonItem(title: buttonTitle, style: .done, target: self, action: #selector(onClickDoneButton))
+        doneButton.tintColor = .white
+        toolBar.setItems([space, doneButton], animated: false)
+        toolBar.isUserInteractionEnabled = true
+        toolBar.sizeToFit()
+        return toolBar
+    }
+
+    @objc func onClickDoneButton(){
+        view.endEditing(true)
     }
 }
