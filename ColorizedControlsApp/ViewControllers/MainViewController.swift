@@ -114,11 +114,14 @@ extension MainViewController {
     
     private func setTextField(for textFields: UITextField...) {
         textFields.forEach { textField in
+            textField.keyboardType = .decimalPad
+            
             switch textField {
             case redTF: textField.text = getValue(from: redSlider)
             case greenTF: textField.text = getValue(from: greenSlider)
             default: textField.text = getValue(from: blueSlider)
             }
+            
         }
     }
     
