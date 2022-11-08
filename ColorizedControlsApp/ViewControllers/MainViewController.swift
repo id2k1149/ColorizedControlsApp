@@ -55,7 +55,6 @@ class MainViewController: UIViewController {
     
     // MARK: - IBActions
     @IBAction func sliderAction(_ sender: UISlider) {
-        setColorWithSliders()
         switch sender {
         case redSlider:
             setValue(for: redLabel)
@@ -67,6 +66,8 @@ class MainViewController: UIViewController {
             setValue(for: blueLabel)
             setTextField(for: blueTF)
         }
+        
+        setColorWithSliders()
     }
     
     @IBAction func doneButtonTaped(_ sender: UIButton) {
@@ -112,18 +113,9 @@ class MainViewController: UIViewController {
     private func setTextField(for textFields: UITextField...) {
         textFields.forEach { textField in
             switch textField {
-            case redTF:
-                textField.text = getValue(from: redSlider)
-                textField.keyboardType = .decimalPad
-                textField.inputAccessoryView = toolBar()
-            case greenTF:
-                textField.text = getValue(from: greenSlider)
-                textField.keyboardType = .decimalPad
-                textField.inputAccessoryView = toolBar()
-            default:
-                textField.text = getValue(from: blueSlider)
-                textField.keyboardType = .decimalPad
-                textField.inputAccessoryView = toolBar()
+            case redTF: textField.text = getValue(from: redSlider)
+            case greenTF: textField.text = getValue(from: greenSlider)
+            default: textField.text = getValue(from: blueSlider)
             }
         }
     }
