@@ -24,8 +24,8 @@ class MainViewController: UIViewController {
     @IBOutlet weak var greenTF: UITextField!
     @IBOutlet weak var blueTF: UITextField!
     
+    // MARK: - Public Properties
     var screenBackground: UIColor!
-    
     var delegate: MainViewControllerDelegate!
     
     // MARK: - LifeCicle view
@@ -38,7 +38,7 @@ class MainViewController: UIViewController {
         
         colorView.backgroundColor = screenBackground
         
-        setSlider(with: screenBackground, for: redSlider, greenSlider, blueSlider)
+        setSlider(for: redSlider, greenSlider, blueSlider)
         setValue(for: redLabel, greenLabel, blueLabel)
         setTextField(for: redTF, greenTF, blueTF)
         
@@ -84,23 +84,14 @@ class MainViewController: UIViewController {
         )
     }
     
-    private func setSlider(with screenRGB: UIColor, for sliders: UISlider...) {
-        var redColor: CGFloat = 0
-        var greenColor: CGFloat = 0
-        var blueColor: CGFloat = 0
-        var alpha: CGFloat = 1
-        
-        screenRGB.getRed(&redColor, green: &greenColor, blue: &blueColor, alpha: &alpha)
+    private func setSlider(for sliders: UISlider...) {
+        let ciColor = CIColor(color: screenBackground)
         
         sliders.forEach { slider in
             switch slider {
-            case redSlider:
-                slider.value = Float(redColor)
-            case greenSlider:
-                slider.value = Float(greenColor)
-            default:
-                slider.value = Float(blueColor)
-                
+            case redSlider: slider.value = Float(ciColor.red)
+            case greenSlider: slider.value = Float(ciColor.green)
+            default: slider.value = Float(ciColor.blue)
             }
         }
     }
